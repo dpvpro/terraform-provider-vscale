@@ -3,9 +3,8 @@ Terraform Provider
 
 - Website: https://www.terraform.io
 - [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.png)](https://gitter.im/hashicorp-terraform/Lobby)
-- Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
 
-<img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
+
 
 Requirements
 ------------
@@ -29,11 +28,6 @@ Enter the provider directory and build the provider
 $ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-$PROVIDER_NAME
 $ make build
 ```
-
-Using the provider
-----------------------
-
-See the [DigitalOcean Provider documentation](https://www.terraform.io/docs/providers/do/index.html) to get started using the DigitalOcean provider.
 
 Developing the Provider
 ---------------------------

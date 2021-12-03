@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pkg/errors"
 	vscale "github.com/vozerov/go-vscale"
 
@@ -96,7 +96,7 @@ func resourceScaletCreate(d *schema.ResourceData, m interface{}) error {
 		return errors.Wrap(err, "creating scalet failed")
 	}
 
-    time.Sleep(15 * time.Second)
+	time.Sleep(15 * time.Second)
 
 	publicAddress, err := findPublicAddress(client, scalet.CTID)
 	if err != nil {

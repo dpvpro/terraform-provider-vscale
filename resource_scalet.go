@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
+	vscale "github.com/dpvpro/vscale-api-client-go"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pkg/errors"
-	vscale "github.com/dpvpro/vscale-api-client-go"
 
 	"time"
 )

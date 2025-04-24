@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	vscale "github.com/dpvpro/vscale-api-client-go"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 // Provider returns a schema.Provider for VScale.

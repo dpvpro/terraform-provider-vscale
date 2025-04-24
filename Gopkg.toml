@@ -27,7 +27,7 @@
 
 [[constraint]]
   branch = "master"
-  name = "github.com/vozerov/go-vscale"
+  name = "github.com/dpvpro/vscale-api-client-go"
 
 [[constraint]]
   name = "github.com/pkg/errors"

@@ -206,7 +206,7 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/vozerov/go-vscale"
+  name = "github.com/dpvpro/vscale-api-client-go"
   packages = ["."]
   revision = "01d5114cc44549735cbd7fb809022405732cae03"
 

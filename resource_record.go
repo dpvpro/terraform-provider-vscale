@@ -1,13 +1,13 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strconv"
 
+	vscale "github.com/dpvpro/vscale-api-client-go"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pkg/errors"
-	vscale "github.com/dpvpro/vscale-api-client-go"
 )
 
 func resourceRecord() *schema.Resource {
@@ -59,7 +59,7 @@ func resourceRecordCreate(d *schema.ResourceData, m any) error {
 
 	record, res, err := client.DomainRecord.Create(int64(domainID), name, recordType, int64(ttl), content)
 	if err != nil {
-		b, berr := ioutil.ReadAll(res.Body)
+		b, berr := io.ReadAll(res.Body)
 		if berr != nil {
 			return errors.Wrap(err, "reading response body failed")
 		}

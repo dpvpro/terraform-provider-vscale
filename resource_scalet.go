@@ -54,7 +54,7 @@ func resourceScalet() *schema.Resource {
 	}
 }
 
-func resourceScaletCreate(d *schema.ResourceData, m interface{}) error {
+func resourceScaletCreate(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	name := d.Get("name").(string)
@@ -114,7 +114,7 @@ func resourceScaletCreate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceScaletRead(d *schema.ResourceData, m interface{}) error {
+func resourceScaletRead(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -145,7 +145,7 @@ func containsString(list []string, target string) bool {
 	return false
 }
 
-func resourceScaletExists(d *schema.ResourceData, m interface{}) (bool, error) {
+func resourceScaletExists(d *schema.ResourceData, m any) (bool, error) {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -161,11 +161,11 @@ func resourceScaletExists(d *schema.ResourceData, m interface{}) (bool, error) {
 	return true, nil
 }
 
-func resourceScaletUpdate(d *schema.ResourceData, m interface{}) error {
+func resourceScaletUpdate(d *schema.ResourceData, m any) error {
 	return nil
 }
 
-func resourceScaletDelete(d *schema.ResourceData, m interface{}) error {
+func resourceScaletDelete(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)

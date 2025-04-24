@@ -15,7 +15,7 @@ func Provider() *schema.Provider {
 			"vscale_record":  resourceRecord(),
 		},
 		Schema: map[string]*schema.Schema{
-			"token": &schema.Schema{
+			"token": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("VSCALE_API_TOKEN", nil),
@@ -26,7 +26,7 @@ func Provider() *schema.Provider {
 	}
 }
 
-func providerConfigure(d *schema.ResourceData) (interface{}, error) {
+func providerConfigure(d *schema.ResourceData) (any, error) {
 	client := vscale.NewClient(d.Get("token").(string))
 
 	return client, nil

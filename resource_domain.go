@@ -26,7 +26,7 @@ func resourceDomain() *schema.Resource {
 	}
 }
 
-func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
+func resourceDomainCreate(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	name := d.Get("name").(string)
@@ -41,7 +41,7 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceDomainRead(d *schema.ResourceData, m interface{}) error {
+func resourceDomainRead(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -59,7 +59,7 @@ func resourceDomainRead(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceDomainExists(d *schema.ResourceData, m interface{}) (bool, error) {
+func resourceDomainExists(d *schema.ResourceData, m any) (bool, error) {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -78,7 +78,7 @@ func resourceDomainExists(d *schema.ResourceData, m interface{}) (bool, error) {
 	return true, nil
 }
 
-func resourceDomainDelete(d *schema.ResourceData, m interface{}) error {
+func resourceDomainDelete(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)

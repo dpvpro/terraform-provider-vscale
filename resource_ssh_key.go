@@ -17,16 +17,16 @@ func resourceSSHKey() *schema.Resource {
 		Exists: resourceSSHKeyExists,
 
 		Schema: map[string]*schema.Schema{
-			// "id": &schema.Schema{
+			// "id": {
 			// 	Type:     schema.TypeString,
 			// 	Computed: true,
 			// },
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			},
-			"key": &schema.Schema{
+			"key": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
@@ -35,7 +35,7 @@ func resourceSSHKey() *schema.Resource {
 	}
 }
 
-func resourceSSHKeyCreate(d *schema.ResourceData, m interface{}) error {
+func resourceSSHKeyCreate(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	name := d.Get("name").(string)
@@ -51,7 +51,7 @@ func resourceSSHKeyCreate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceSSHKeyRead(d *schema.ResourceData, m interface{}) error {
+func resourceSSHKeyRead(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -85,7 +85,7 @@ func resourceSSHKeyRead(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceSSHKeyExists(d *schema.ResourceData, m interface{}) (bool, error) {
+func resourceSSHKeyExists(d *schema.ResourceData, m any) (bool, error) {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -110,7 +110,7 @@ func resourceSSHKeyExists(d *schema.ResourceData, m interface{}) (bool, error) {
 	return false, nil
 }
 
-func resourceSSHKeyDelete(d *schema.ResourceData, m interface{}) error {
+func resourceSSHKeyDelete(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	id, err := strconv.ParseInt(d.Id(), 10, 64)

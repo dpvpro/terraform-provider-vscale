@@ -48,7 +48,7 @@ func resourceRecord() *schema.Resource {
 	}
 }
 
-func resourceRecordCreate(d *schema.ResourceData, m interface{}) error {
+func resourceRecordCreate(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	domainID := d.Get("domain").(int)
@@ -72,7 +72,7 @@ func resourceRecordCreate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceRecordUpdate(d *schema.ResourceData, m interface{}) error {
+func resourceRecordUpdate(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	recordID, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -100,7 +100,7 @@ func resourceRecordUpdate(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceRecordRead(d *schema.ResourceData, m interface{}) error {
+func resourceRecordRead(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	recordID, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -128,7 +128,7 @@ func resourceRecordRead(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceRecordExists(d *schema.ResourceData, m interface{}) (bool, error) {
+func resourceRecordExists(d *schema.ResourceData, m any) (bool, error) {
 	client := m.(*vscale.WebClient)
 
 	recordID, err := strconv.ParseInt(d.Id(), 10, 64)
@@ -150,7 +150,7 @@ func resourceRecordExists(d *schema.ResourceData, m interface{}) (bool, error) {
 	return true, nil
 }
 
-func resourceRecordDelete(d *schema.ResourceData, m interface{}) error {
+func resourceRecordDelete(d *schema.ResourceData, m any) error {
 	client := m.(*vscale.WebClient)
 
 	recordID, err := strconv.ParseInt(d.Id(), 10, 64)

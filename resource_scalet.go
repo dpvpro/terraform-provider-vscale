@@ -20,33 +20,33 @@ func resourceScalet() *schema.Resource {
 		Delete: resourceScaletDelete,
 
 		Schema: map[string]*schema.Schema{
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			},
-			"make_from": &schema.Schema{
+			"make_from": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			},
-			"rplan": &schema.Schema{
+			"rplan": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			},
-			"location": &schema.Schema{
+			"location": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 			},
-			"ssh_keys": &schema.Schema{
+			"ssh_keys": {
 				Type:     schema.TypeList,
 				Optional: true,
 				ForceNew: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"public_address": &schema.Schema{
+			"public_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -133,16 +133,6 @@ func resourceScaletRead(d *schema.ResourceData, m any) error {
 	d.Set("location", scalet.Location)
 
 	return nil
-}
-
-func containsString(list []string, target string) bool {
-	for _, item := range list {
-		if item == target {
-			return true
-		}
-	}
-
-	return false
 }
 
 func resourceScaletExists(d *schema.ResourceData, m any) (bool, error) {

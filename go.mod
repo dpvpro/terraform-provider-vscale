@@ -1,4 +1,4 @@
-module terraform-providers/terraform-provider-vscale
+module github.com/dpvpro/terraform-provider-vscale
 
 go 1.24.2
 
